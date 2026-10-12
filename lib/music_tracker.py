@@ -18,11 +18,16 @@ class MusicTracker:
         # Side-effects
         #   Saves the song to the self object
         # if song not entered, throws an exception, if song doenst = string, throws an excpetion.
-        self.listOfSongs.append(song)
+        if len(song) == 0:
+            raise Exception("No song given")
+        elif type(song) != str:
+            raise Exception("Incorrect type given")
+        elif song not in self.listOfSongs:
+            self.listOfSongs.append(song)
+        
 
     def list_songs(self):
         # Returns:
         #   A list reminding the user in order of their songs.
         # Side-effects:
-        # 
-        pass # No code here yet
+        return self.listOfSongs

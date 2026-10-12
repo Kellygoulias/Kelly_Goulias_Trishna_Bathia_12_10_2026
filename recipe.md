@@ -79,7 +79,48 @@ Given another song by user
 musictracker = MusicTracker()
 musictracker.track("Toxic")
 musictracker.track("Let it go")
-musictracker.list_songs() # > returns a list with toxic and let it go inside.
+musictracker.list0fsongs() # > returning list of songs 
+
+"""
+Given another song by user
+#see if all songs are returned when called
+"""
+musictracker = MusicTracker()
+musictracker.track("Fireflies")
+musictracker.track("Let it go")
+musictracker.list_songs() # > returns a list with fireflies and let it go inside.
+
+
+
+"""
+Given no song, when track method is called, an exception is raised
+-> No song given"""
+
+musictracker = MusicTracker()
+musictracker.track()
+# > raises exception here: No song given
+
+
+"""Given a song where type != string, when track method is called, an exception is raised
+-> Incorrect type given """
+
+musictracker = MusicTracker()
+musictracker.track([3])
+# > raises exception here: Incorrect type given
+
+
+""" 
+If song already in list of songs, don't want to add it again
+
+"""
+
+music_tracker = MusicTracker()
+music_tracker.track("Toxic")
+music_tracker.track("Let it go")
+music_tracker.track("Toxic")
+music_tracker.track("Let it go")
+assert music_tracker.listOfSongs == ["Toxic", "Let it go"]
+
 
 
 
